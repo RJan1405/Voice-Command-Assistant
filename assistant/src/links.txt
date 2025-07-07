@@ -1,0 +1,9 @@
+
+api enable link:
+https://console.cloud.google.com/apis/api/customsearch.googleapis.com/metrics?project=my-project-41696-awd
+api creation links
+https://console.cloud.google.com/apis/credentials?project=my-project-41696-awd
+
+Youtube video link
+
+https://youtu.be/brCkpzAD0gc?si=ISLg8sWBu07fpejb

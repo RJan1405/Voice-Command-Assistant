@@ -1,0 +1,42 @@
+.secondary-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  gap: 20px;
+  padding: 15px;
+  background-color: white;
+  z-index: 1000;
+}
+
+.command-history,
+.favorites {
+  position: relative;
+  cursor: pointer;
+}
+
+.command-history h3,
+.favorites h3 {
+  margin: 0;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.history-list,
+.favorites-list {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  min-width: 200px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.command-history:hover .history-list,
+.favorites:hover .favorites-list {
+  display: block;
+}

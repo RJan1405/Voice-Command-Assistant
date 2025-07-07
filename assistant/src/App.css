@@ -1,0 +1,607 @@
+.App {
+  text-align: center;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 18px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px 0;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.recognized-text, 
+.response {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 30px;
+}
+
+h3 {
+  color: #666;
+  margin: 20px 0 10px;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.voice-visualizer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  height: 60px;
+  margin: 20px 0;
+}
+
+.voice-line {
+  width: 3px;
+  height: 20px;
+  background-color: #4CAF50;
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+}
+
+.voice-line.active {
+  opacity: 1;
+  animation: pulsate 0.5s ease-in-out infinite;
+}
+
+@keyframes pulsate {
+  0%, 100% { height: 20px; }
+  50% { height: 40px; }
+}
+
+.conversation-history {
+  max-height: 300px;
+  overflow-y: auto;
+  margin: 20px 0;
+  padding: 15px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+}
+
+.message {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.countdowns {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 15px 20px;
+  border-radius: 12px;
+  min-width: 200px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.countdowns {
+  margin: 20px 0;
+  padding: 15px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+
+.countdown-timer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 5px 0;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.countdown-timer:last-child {
+  border-bottom: none;
+}
+
+.countdown-timer span:first-child {
+  color: #4CAF50;
+  font-size: 14px;
+  flex: 1;
+  text-align: left;
+  margin-right: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.countdown-timer span:last-child {
+  color: white;
+  font-family: monospace;
+  font-size: 18px;
+  font-weight: bold;
+  background: #000;
+  padding: 4px 10px;
+  border-radius: 6px;
+  min-width: 70px;
+  text-align: center;
+}
+
+.voice-settings {
+  margin: 20px;
+  padding: 15px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+
+.voice-settings input[type="range"] {
+  width: 200px;
+  margin: 10px;
+}
+
+.command-history, .favorites, .tasks {
+  margin: 20px;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.command-history ul, .favorites ul, .tasks ul {
+  list-style: none;
+  padding: 0;
+}
+
+.command-history li, .favorites li, .tasks li {
+  padding: 8px;
+  margin: 5px 0;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+.tasks li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.command-history, .favorites {
+  margin: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+}
+
+.history-list, .favorites-list {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.history-item, .favorite-item {
+  padding: 8px;
+  margin: 4px 0;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.history-item:hover, .favorite-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* Add navbar styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  gap: 20px;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+/* Modify existing styles for navbar items */
+.command-history, .favorites, .voice-settings {
+  margin: 0;
+  padding: 10px;
+  background-color: transparent;
+  box-shadow: none;
+  position: relative;
+}
+
+.command-history h3, .favorites h3, .voice-settings h3 {
+  margin: 0;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Dropdown content */
+.history-list, .favorites-list, .settings-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  min-width: 200px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  padding: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.command-history:hover .history-list,
+.favorites:hover .favorites-list,
+.voice-settings:hover .settings-content {
+  display: block;
+}
+
+/* Remove duplicate margin and padding for main content */
+.App {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 70px;
+}
+
+/* Enhance navbar styling */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px 30px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+.navbar > div {
+  margin-left: 30px;
+  cursor: pointer;
+}
+
+.navbar h3 {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.navbar h3:hover {
+  background-color: #f5f5f5;
+}
+
+/* Adjust dropdown positioning and styling */
+.settings-content {
+  padding: 20px;
+  min-width: 250px;
+}
+
+.settings-content label {
+  display: block;
+  margin: 10px 0 5px;
+  text-align: left;
+}
+
+/* Remove these sections as they're now only in navbar */
+.voice-settings:not(.navbar .voice-settings),
+.command-history:not(.navbar .command-history),
+.favorites:not(.navbar .favorites) {
+  display: none;
+}
+
+.app {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 70px;
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+/* Main Navigation Styles */
+.main-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #333;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  z-index: 1100;
+}
+
+.main-nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.main-nav a:hover {
+  background-color: #4CAF50;
+}
+
+.main-nav a.active {
+  background-color: #4CAF50;
+}
+
+/* Settings dropdown in navbar */
+.navbar {
+  position: fixed;
+  top: 60px;
+  right: 0;
+  display: flex;
+  gap: 20px;
+  padding: 15px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+.navbar > div {
+  margin-left: 30px;
+  cursor: pointer;
+}
+
+.navbar h3 {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.navbar h3:hover {
+  background-color: #f5f5f5;
+}
+
+/* Adjust dropdown positioning and styling */
+.settings-content {
+  padding: 20px;
+  min-width: 250px;
+}
+
+.settings-content label {
+  display: block;
+  margin: 10px 0 5px;
+  text-align: left;
+}
+
+/* Remove these sections as they're now only in navbar */
+.voice-settings:not(.navbar .voice-settings),
+.command-history:not(.navbar .command-history),
+.favorites:not(.navbar .favorites) {
+  display: none;
+}
+
+/* Page Layout */
+.page-container {
+  margin-top: 70px;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Settings Page */
+.settings-page {
+  text-align: left;
+}
+
+.settings-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.setting-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+  padding: 0.5rem;
+}
+
+.setting-item label {
+  min-width: 150px;
+  font-weight: 500;
+}
+
+.setting-item select,
+.setting-item input[type="text"],
+.setting-item input[type="number"] {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  min-width: 200px;
+}
+
+/* Profile Page */
+.profile-page {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.profile-section {
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+/* Help Page */
+.help-page {
+  text-align: left;
+}
+
+.help-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.faq-item {
+  margin-bottom: 1.5rem;
+}
+
+.faq-question {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.faq-answer {
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Feedback Page */
+.feedback-page {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.feedback-form {
+  text-align: left;
+}
+
+.feedback-form textarea {
+  width: 100%;
+  min-height: 150px;
+  padding: 1rem;
+  margin: 1rem 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+/* Resources Page */
+.resources-page {
+  text-align: left;
+}
+
+.resource-card {
+  padding: 1.5rem;
+  margin: 1rem 0;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.resource-card:hover {
+  transform: translateY(-2px);
+}
+
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --primary-color: #4CAF50;
+  --secondary-color: #f5f5f5;
+  --border-color: #e0e0e0;
+}
+
+[data-theme='dark'] {
+  --bg-color: #1a1a1a;
+  --text-color: #ffffff;
+  --primary-color: #4CAF50;
+  --secondary-color: #2d2d2d;
+  --border-color: #404040;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Add these classes to your existing CSS */
+.settings-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.settings-section {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: var(--secondary-color);
+  border-radius: 8px;
+}
+
+.theme-options {
+  display: flex;
+  gap: 10px;
+}
+
+.theme-btn {
+  padding: 10px 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background: var(--bg-color);
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.theme-btn.active {
+  background: var(--primary-color);
+  color: white;
+}

@@ -1,0 +1,60 @@
+.command-history-container {
+  padding: 20px;
+  background: #e0e3e7;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.command-history-container h2 {
+  color: #1a1a1a;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.command-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.command-item {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  margin: 8px 0;
+  background: #c0c7cf;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.command-item:hover {
+  background: #b0b8c1;
+  transform: translateX(5px);
+}
+
+.command-number {
+  background: #1b5e20;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-right: 12px;
+  font-size: 0.9rem;
+  min-width: 30px;
+  text-align: center;
+}
+
+.command-text {
+  color: #1a1a1a;
+  font-size: 1rem;
+}
+
+.history-info {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.command-time {
+  font-size: 0.8rem;
+  color: #666;
+  margin-left: auto;
+}
