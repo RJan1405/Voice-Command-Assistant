@@ -9,8 +9,8 @@ For your a demo and help I have provided necssary links and youtube video link t
 Some of demo pictures of project:
 
 
-![image alt]([https://github.com/RJan1405/E-commerce-Website/blob/9f80c155ac967d6505131468d97f5b54ffc9a519/gen/pic/Registration%20Page.png](https://github.com/RJan1405/Voice-Command-Assistant/blob/5a8b1711a47be8979e1d7fd74c4616c7e43c830c/Demo%20pics/Voice%20cmd%201.png))
 
+![image_alt](https://github.com/RJan1405/Voice-Command-Assistant/blob/5a8b1711a47be8979e1d7fd74c4616c7e43c830c/Demo%20pics/Voice%20cmd%201.png)
 ![image alt](https://github.com/RJan1405/E-commerce-Website/blob/9f80c155ac967d6505131468d97f5b54ffc9a519/gen/pic/Registration%20Page.png)
 ![image alt](https://github.com/RJan1405/E-commerce-Website/blob/9f80c155ac967d6505131468d97f5b54ffc9a519/gen/pic/Registration%20Page.png)
 ![image alt](https://github.com/RJan1405/E-commerce-Website/blob/9f80c155ac967d6505131468d97f5b54ffc9a519/gen/pic/Registration%20Page.png)
