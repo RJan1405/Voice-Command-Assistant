@@ -4,8 +4,6 @@ import './Settings.css';
 function Settings({ voiceSettings, setVoiceSettings, theme, setTheme }) {
   const handleThemeChange = (newTheme) => {
     setTheme(newTheme);
-    document.body.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
   };
 
   return (
@@ -24,6 +22,30 @@ function Settings({ voiceSettings, setVoiceSettings, theme, setTheme }) {
           />
           <span>{voiceSettings.rate}x</span>
         </div>
+        <div className="setting-item">
+          <label>Pitch:</label>
+          <input
+            type="range"
+            min="0.5"
+            max="2"
+            step="0.1"
+            value={voiceSettings.pitch}
+            onChange={(e) => setVoiceSettings(prev => ({ ...prev, pitch: parseFloat(e.target.value) }))}
+          />
+          <span>{voiceSettings.pitch}x</span>
+        </div>
+        <div className="setting-item">
+          <label>Volume:</label>
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.1"
+            value={voiceSettings.volume}
+            onChange={(e) => setVoiceSettings(prev => ({ ...prev, volume: parseFloat(e.target.value) }))}
+          />
+          <span>{Math.round(voiceSettings.volume * 100)}%</span>
+        </div>
       </section>
 
       <section className="settings-section">
@@ -39,7 +61,19 @@ function Settings({ voiceSettings, setVoiceSettings, theme, setTheme }) {
             className={`theme-btn ${theme === 'dark' ? 'active' : ''}`}
             onClick={() => handleThemeChange('dark')}
           >
-            Dark
+            Midnight
+          </button>
+          <button 
+            className={`theme-btn ${theme === 'cyberpunk' ? 'active' : ''}`}
+            onClick={() => handleThemeChange('cyberpunk')}
+          >
+            Cyberpunk
+          </button>
+          <button 
+            className={`theme-btn ${theme === 'emerald' ? 'active' : ''}`}
+            onClick={() => handleThemeChange('emerald')}
+          >
+            Emerald
           </button>
         </div>
       </section>

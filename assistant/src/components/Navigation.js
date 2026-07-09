@@ -24,12 +24,6 @@ function Navigation({ commandHistory }) {
         <Link to="/settings" className={location.pathname === '/settings' ? 'active' : ''}>
           Settings
         </Link>
-        <Link to="/resources" className={location.pathname === '/resources' ? 'active' : ''}>
-          Resources
-        </Link>
-        <Link to="/feedback" className={location.pathname === '/feedback' ? 'active' : ''}>
-          Feedback
-        </Link>
         <Link to="/help" className={location.pathname === '/help' ? 'active' : ''}>
           Help
         </Link>

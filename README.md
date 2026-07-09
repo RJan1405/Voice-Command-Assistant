@@ -4,7 +4,18 @@ To enable for Search Queries you need to Create Goggle api keys and Search engin
 after enabling the you may assigned them in .env file 
 Location: Assistant/server/.env
 
-For your a demo and help I have provided necssary links and youtube video link text file in Demo pics folder.
+For your demo and help,I have provided necssary links and youtube video link text file in Demo pics folder.
+
+running cmd:
+
+run frontend
+Voice_assistant\Voice-Command-Assistant\assistant> npm start
+
+move to server directory
+Voice_assistant\Voice-Command-Assistant\assistant> cd server
+
+run the server
+Voice_assistant\Voice-Command-Assistant\assistant\server>node server.js
 
 Some of demo pictures of project:
 
